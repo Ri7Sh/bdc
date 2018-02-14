@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>attendance</title>
+</head>
+<body>
+<h1> Attendance</h1>
+<form action="/", method="post" id = "user_form">
+{% csrf_token %}
+	Name<input type="text" name="username"><br>
+	Department
+	<select name="Department">
+    <option value="CLP">CLP</option>
+    <option value="School">School</option>
+    <option value="HPA">HPA</option>
+    <option value="EAP">EAP</option>
+    <option value="EPD">EPD</option>
+    <option value="Umang">Umang</option>
+    <option value="Parishodh">Parishodh</option>
+    
+  </select><br>
+	Year<input type="text" name="Year"><br>
+	<button type = "submit">Submit</button>
+
+	{{ status }}
+	<a href="{% url 'export_users_xls' %}">Export all users</a>
+</form>
+</body>
+</html>
