@@ -4,14 +4,14 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from .models import *
 # Create your views here.
-from attendance.forms import UserPForm
+# from attendance.forms import UserPForm
 
 from django.http import HttpResponse
 import xlwt
 
 
 def attend(request):
-	user_form = UserPForm()
+	# user_form = UserPForm()
 	if request.method == 'POST':
 		#user_form=UserPForm(data=request.POST)
 		#if user_form.is_valid():
@@ -25,9 +25,9 @@ def attend(request):
 			user.save()
 			state= 'saved'
 			print("1")
-			return render(request,'attend.html',{'user_form':user_form,'state':state})
+			return render(request,'attend.html',{'state':state})
 		
-	return render(request,'attend.html',{'user_form':user_form})
+	return render(request,'attend.html')
 
 
 
